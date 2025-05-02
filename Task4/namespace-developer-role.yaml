@@ -1,0 +1,15 @@
+# namespace-developer-role.yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: namespace-developer
+  annotations:
+    rbac.authorization.kubernetes.io/description: "Полный доступ к ресурсам в namespace"
+rules:
+- apiGroups: ["", "apps", "batch", "extensions", "networking.k8s.io"]
+  resources: 
+    - pods
+    - deployments
+    - services
+    - namespaces
+  verbs: ["*"]
